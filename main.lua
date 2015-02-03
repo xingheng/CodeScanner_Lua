@@ -9,7 +9,8 @@ print(string.format("Current time: %s.\n", os.time()))
 function enumrateDir(dirPath)
 
 	for file in lfs.dir(dirPath) do
-	    local mode = lfs.attributes(file, "mode")
+		local fullpath = string.format("%s/%s", dirPath, file)
+	    local mode = lfs.attributes(fullpath, "mode")
 
 	    if mode == "file" then
 	        print("Found file, " .. file)
